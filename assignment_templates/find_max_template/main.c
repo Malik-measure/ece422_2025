@@ -10,7 +10,11 @@ int _getMax(int* buffer, int buffer_size)
     //starts at index 1
     for(i = 1; i < buffer_size; i++)
     {
+        if(buffer[i]>max){
+            max=buffer[i]; // update max num when current if larger
+        }
         printf("[%d] = %d\n", i, buffer[i]);
+
     }
     
     //Return the largest value in the array
