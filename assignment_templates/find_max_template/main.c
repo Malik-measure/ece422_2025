@@ -13,7 +13,7 @@ int _getMax(int* buffer, int buffer_size)
         if(buffer[i]>max){
             max=buffer[i]; // update max num when current if larger
         }
-        printf("[%d] = %d\n", i, buffer[i]);
+        //printf("[%d] = %d\n", i, buffer[i]);
 
     }
     
