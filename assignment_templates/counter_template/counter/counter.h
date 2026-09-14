@@ -1,38 +1,39 @@
-/*
- * Header file for counter implementation
- */
-//Standard includes
-#include <stdint.h>
+#ifndef COUNTER_H
+#define COUNTER_H
+
 #include <stdbool.h>
+#include <stdint.h>
 
-
-//Define enumerated values
 typedef enum
 {
-    eMode_up,
-    eMode_down,
-    eMode_dual_slope
+	COUNTER_MODE_UP,
+	COUNTER_MODE_DOWN,
+	COUNTER_MODE_DUAL_SLOPE
+} CounterMode;
 
-}CounterMode_enum;
-
-//Define data structure
 struct counter_st
 {
-    CounterMode_enum mode;
-    uint16_t prescaler;
-    uint16_t top;
-    uint16_t match;
-    uint16_t step_size;
-    uint16_t current_count;
-    bool up_counting;
+	uint16_t prescaler;
+	uint16_t prescaler_count;
+	uint16_t bottom;
+	uint16_t top;
+	uint16_t match;
+	CounterMode mode;
+	uint16_t step_size;
+	uint16_t current_count;
+	bool counting_up;
+	bool match_flag;
 };
 
 typedef struct counter_st* Counter_t;
 
-/*
- * Function Prototypes
- */
+
 void counter_init(Counter_t obj);
 void counter_inc(Counter_t obj);
 void counter_dec(Counter_t obj);
+void counter_dual_slope(Counter_t obj);
 void counter_run(Counter_t obj);
+void counter_match_clear(Counter_t obj);
+
+#endif
+

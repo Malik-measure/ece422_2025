@@ -1,6 +1,21 @@
 #include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <assert.h>
 
 #include "counter.h"
+
+
+void counter_init_test(void)
+{
+	//[setup]
+
+	//[arrange]
+
+	//[action]
+	
+	//[assert]
+}
 
 void counter_inc_test(void)
 {
